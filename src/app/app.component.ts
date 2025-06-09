@@ -18,6 +18,8 @@ interface DessertImages {
 }
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [AddToCartComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
