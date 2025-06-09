@@ -1,21 +1,8 @@
 import { Component } from '@angular/core';
 import desseretData from '../../public/data.json';
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
+import { Dessert } from '../model/dessert.interface';
 
-// interface
-interface Dessert {
-  image: DessertImages;
-  name: string;
-  category: string;
-  price: number;
-}
-
-interface DessertImages {
-  thumbnail: string;
-  mobile: string;
-  tablet: string;
-  desktop: string;
-}
 @Component({
   selector: 'app-root',
   standalone: true,
