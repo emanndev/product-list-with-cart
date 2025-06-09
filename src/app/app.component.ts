@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import desseretData from '../../public/data.json';
-import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { CartComponent } from './components/cart/cart.component';
 import { Dessert } from '../model/dessert.interface';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AddToCartComponent],
+  imports: [ProductCardComponent, CartComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
