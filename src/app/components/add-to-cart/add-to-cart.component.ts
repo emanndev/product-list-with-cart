@@ -15,13 +15,20 @@ export class AddToCartComponent {
   }
 
   decreaseProductItem() {
-    if (this.quantity < 1) {
-      this.isAddedToCart = false;
+    if (this.quantity > 1) {
+      this.quantity--;
+      this.delay();
     }
-    this.quantity--;
   }
 
   increaseProductItem() {
     ++this.quantity;
+    this.delay();
+  }
+  //delay tp show the add cart
+  delay() {
+    setTimeout(() => {
+      this.isAddedToCart = false;
+    }, 2000);
   }
 }
