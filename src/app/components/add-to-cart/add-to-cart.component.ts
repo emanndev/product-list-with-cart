@@ -29,6 +29,6 @@ export class AddToCartComponent {
   delay() {
     setTimeout(() => {
       this.isAddedToCart = false;
-    }, 1000);
+    }, 2000);
   }
 }
