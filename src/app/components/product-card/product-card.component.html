@@ -1,19 +1,15 @@
-<section class="desserts">
-  <h1>Desserts</h1>
-
+<div class="desserts-container">
   @for(dessert of desserts; track dessert.name ){
-  <div class="desserts-container">
-    <div class="dessert-item">
-      <section class="item-image-add-to-cart">
-        <img src="{{ dessert.image.desktop }}" alt="dessert image" />
-        <app-add-to-cart />
-      </section>
-      <section class="item-info">
-        <p class="category">{{ dessert.category }}</p>
-        <p class="name">{{ dessert.name }}</p>
-        <p class="price">{{ dessert.category }}</p>
-      </section>
-    </div>
+  <div class="dessert-item">
+    <section class="item-image-add-to-cart">
+      <img src="{{ dessert.image.desktop }}" alt="dessert image" />
+      <app-add-to-cart />
+    </section>
+    <section class="item-info">
+      <p class="category">{{ dessert.category }}</p>
+      <p class="name">{{ dessert.name }}</p>
+      <p class="price">{{ dessert.category }}</p>
+    </section>
   </div>
   }
-</section>
+</div>
