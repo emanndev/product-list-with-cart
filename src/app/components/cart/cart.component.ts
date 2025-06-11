@@ -14,9 +14,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './cart.component.scss',
 })
 export class CartComponent implements OnInit {
-  // @Input()
-  // desserts!: Dessert[];
-
   cartItems$!: Observable<CartItem[]>;
   itemCount$!: Observable<number>;
   total$!: Observable<number>;

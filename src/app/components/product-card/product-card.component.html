@@ -1,15 +1,17 @@
 <div class="desserts-container">
-  @for(dessert of desserts(); track dessert.name ){
   <div class="dessert-item">
     <section class="item-image-add-to-cart">
-      <img src="{{ dessert.image.desktop }}" alt="dessert image" />
-      <app-add-to-cart />
+      <picture>
+        <source media="(max-width: 600px)" [srcset]="product.image.mobile" />
+        <source media="(max-width: 1024px)" [srcset]="product.image.tablet" />
+        <img [src]="product.image.desktop" [alt]="product.name" />
+      </picture>
+      <app-add-to-cart [product]="product"></app-add-to-cart>
     </section>
     <section class="item-info">
-      <p class="category">{{ dessert.category }}</p>
-      <p class="name">{{ dessert.name }}</p>
-      <p class="price">{{ dessert.category }}</p>
+      <p class="category">{{ product.category }}</p>
+      <p class="name">{{ product.name }}</p>
+      <p class="price">${{ product.category | number : "1.2-2" }}</p>
     </section>
   </div>
-  }
 </div>
