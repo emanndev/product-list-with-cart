@@ -9,23 +9,24 @@ export class CartServiceService {
   private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
   cartItems$ = this.cartItemsSubject.asObservable();
 
-  add(product: Dessert): void {
+  add(product: Dessert, quantity: number = 1) {
     const items = [...this.cartItemsSubject.getValue()];
-    const index = items.findIndex((item) => item.product.name === product.name);
-    if (index > -1) {
-      items[index].quantity++;
+    const idx = items.findIndex((i) => i.product.name === product.name);
+    if (idx > -1) {
+      items[idx].quantity += quantity;
     } else {
-      items.push({ product, quantity: 1 });
+      items.push({ product, quantity });
     }
     this.cartItemsSubject.next(items);
   }
-
-  remove(productId: number): void {
-    let items = [...this.cartItemsSubject.getValue()];
-    const index = items.findIndex((item) => item.product.id !== productId);
-    if (index > -1) {
-      items[index].quantity--;
-      if (items[index].quantity <= 0) items.splice(index, 1);
+  remove(product: Dessert, quantity: number = 1) {
+    const items = [...this.cartItemsSubject.getValue()];
+    const idx = items.findIndex((i) => i.product.name === product.name);
+    if (idx > -1) {
+      items[idx].quantity -= quantity;
+      if (items[idx].quantity <= 0) {
+        items.splice(idx, 1);
+      }
       this.cartItemsSubject.next(items);
     }
   }

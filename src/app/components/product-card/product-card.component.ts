@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Signal, signal } from '@angular/core';
 import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
 import { Dessert } from '../../../model/dessert.interface';
 import { MainLogicService } from '../../services/main-logic.service';
 import { CommonModule } from '@angular/common';
+import { CartServiceService } from '../../services/cart-service.service';
 
 @Component({
   selector: 'app-product-card',
@@ -12,11 +13,25 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-card.component.scss',
 })
 export class ProductCardComponent implements OnInit {
-  desserts: Dessert[] | null = null;
+  desserts = signal<Dessert[]>([]);
+  @Input() product!: Dessert;
 
-  constructor(private mainLogicService: MainLogicService) {}
+  constructor(
+    private mainLogicService: MainLogicService,
+    private cartService: CartServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.desserts = this.mainLogicService.getDesserts();
+    this.mainLogicService
+      .getDesserts()
+      .subscribe((data) => this.desserts.set(data));
+  }
+
+  addToCart(): void {
+    this.cartService.add(this.product);
+  }
+
+  removeFromCart() {
+    this.cartService.remove(this.product, 1);
   }
 }

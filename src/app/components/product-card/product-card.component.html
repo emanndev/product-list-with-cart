@@ -1,5 +1,5 @@
 <div class="desserts-container">
-  @for(dessert of desserts; track dessert.name ){
+  @for(dessert of desserts(); track dessert.name ){
   <div class="dessert-item">
     <section class="item-image-add-to-cart">
       <img src="{{ dessert.image.desktop }}" alt="dessert image" />

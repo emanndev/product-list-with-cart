@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import desseretData from '../../public/data.json';
+import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CartComponent } from './components/cart/cart.component';
 import { Dessert } from '../model/dessert.interface';
+import { MainLogicService } from './services/main-logic.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +11,16 @@ import { Dessert } from '../model/dessert.interface';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Product list';
-  desserts: Dessert[] | null = null;
+  desserts: Dessert[] = [];
 
-  constructor() {
-    this.desserts = desseretData;
+  constructor(private mainLogicService: MainLogicService) {}
+
+  ngOnInit(): void {
+    this.mainLogicService.getDesserts().subscribe({
+      next: (data) => (this.desserts = data),
+      error: (err) => console.error('Failed to load desserts', err),
+    });
   }
 }

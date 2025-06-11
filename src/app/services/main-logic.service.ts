@@ -1,29 +1,23 @@
 import { Injectable } from '@angular/core';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Dessert } from '../../model/dessert.interface';
-import Data from '../../../public/data.json';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MainLogicService {
-  private desserts: Dessert[] = Data;
-  private localStorageKey = 'cart';
+  private dataUrl = 'data.json';
 
-  constructor() {
-    const stored = localStorage.getItem(this.localStorageKey);
-    if (stored) {
-      this.desserts = JSON.parse(stored);
-    } else {
-      this.desserts = Data;
-    }
-    this.saveToLocalStorage();
-  }
+  constructor(private http: HttpClient) {}
 
-  getDesserts() {
-    return this.desserts;
-  }
-
-  private saveToLocalStorage(): void {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.desserts));
+  //added error handling to the getD
+  getDesserts(): Observable<Dessert[]> {
+    return this.http.get<Dessert[]>(this.dataUrl).pipe(
+      catchError((error) => {
+        console.error('Error fetching desserts:', error);
+        return throwError(() => new Error('Failed to load desserts'));
+      })
+    );
   }
 }

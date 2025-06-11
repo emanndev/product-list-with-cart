@@ -1,4 +1,72 @@
 <section class="cart">
+  <!-- <h2>Your Cart (0)</h2>
+  <div class="content">
+    <div class="empty-cart-content">
+      <img src="images/illustration-empty-cart.svg" alt="empty cart svg" />
+      <p class="empty-cart-description">Your added items will appear here</p>
+    </div>
+  </div> -->
+
+  <div class="cart-list-container">
+    <h2>Your Cart(7)</h2>
+
+    <div class="cart-list">
+      <div class="cart-item">
+        <h3>Classic Tiramisu</h3>
+        <div class="item-info">
+          <div class="price-info">
+            <p class="quantity">4x</p>
+            <p class="price"><span>&#64;</span> $4.99</p>
+            <p class="price-total">$4.99</p>
+          </div>
+          <button class="remove-item">
+            <img src="/images/icon-remove-item.svg" alt="remove icon" />
+          </button>
+        </div>
+      </div>
+      <div class="cart-item">
+        <h3>Vanilla Bean Crème Brûlée</h3>
+        <div class="item-info">
+          <div class="price-info">
+            <p class="quantity">4x</p>
+            <p class="price"><span>&#64;</span> $7.00</p>
+            <p class="price-total">$28.00</p>
+          </div>
+          <button class="remove-item">
+            <img src="/images/icon-remove-item.svg" alt="remove icon" />
+          </button>
+        </div>
+      </div>
+      <div class="cart-item">
+        <h3>Vanilla Panna Cotta</h3>
+        <div class="item-info">
+          <div class="price-info">
+            <p class="quantity">2x</p>
+            <p class="price"><span>&#64;</span> $6.50</p>
+            <p class="price-total">$13.00</p>
+          </div>
+          <button class="remove-item">
+            <img src="/images/icon-remove-item.svg" alt="remove icon" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-total">
+      <p>Order Total</p>
+      <h2>$20.97</h2>
+    </div>
+    <div class="carbon-neutral">
+      <img src="images/icon-carbon-neutral.svg" alt="carbon-neutral icon" />
+      <p>This is a <span>carbon-neutral</span> delivery</p>
+    </div>
+    <div class="confirm-order-wrapper">
+      <button class="confirm-order-btn" type="button">Confirm Order</button>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="cart">
   <h2>Your Cart (0)</h2>
   <div class="content">
     <div class="empty-cart-content">
@@ -7,7 +75,39 @@
     </div>
   </div>
 
-  <div class="cart-content">
-    <div class="filled-cart-content"></div>
-  </div>
-</section>
+</section> -->
+<!-- 
+
+<section class="cart-panel">
+  <h2>Your Cart ({{ itemCount$ | async }})</h2>
+
+  <ng-container *ngIf="((itemCount$ | async) ?? 0) > 0; else emptyCart">
+    <ul class="cart-list">
+      <li *ngFor="let item of cartItems$ | async">
+        <div class="info">
+          <strong>{{ item.product.name }}</strong>
+          <p>
+            £{{ item.product.price | number : "1.2-2" }} × {{ item.quantity }}
+          </p>
+        </div>
+        <div class="controls">
+          <span class="item-total"
+            >£{{ item.product.price * item.quantity | number : "1.2-2" }}</span
+          >
+          <button (click)="removeItem(item.product)">Remove</button>
+        </div>
+      </li>
+    </ul>
+
+    <div class="summary">
+      <span>Total</span>
+      <span class="total-price">£{{ total$ | async | number : "1.2-2" }}</span>
+    </div>
+
+    <button (click)="placeOrder()">Place Order</button>
+  </ng-container>
+
+  <ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+  </ng-template>
+</section> -->
