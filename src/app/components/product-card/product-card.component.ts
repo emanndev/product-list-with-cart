@@ -3,7 +3,7 @@ import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
 import { Dessert } from '../../../model/dessert.interface';
 import { MainLogicService } from '../../services/main-logic.service';
 import { CommonModule } from '@angular/common';
-import { CartServiceService } from '../../services/cart-service.service';
+import { CartServiceService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-card',

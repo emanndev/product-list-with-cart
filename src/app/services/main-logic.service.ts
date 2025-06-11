@@ -11,7 +11,7 @@ export class MainLogicService {
 
   constructor(private http: HttpClient) {}
 
-  //added error handling to the getD
+  //added error handling to the getDesserts method
   getDesserts(): Observable<Dessert[]> {
     return this.http.get<Dessert[]>(this.dataUrl).pipe(
       catchError((error) => {

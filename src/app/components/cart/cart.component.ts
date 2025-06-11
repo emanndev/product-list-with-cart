@@ -2,7 +2,7 @@ import { Component, OnInit, Input, PipeTransform, Pipe } from '@angular/core';
 import { Dessert } from '../../../model/dessert.interface';
 import { MainLogicService } from '../../services/main-logic.service';
 import { map, Observable } from 'rxjs';
-import { CartServiceService } from '../../services/cart-service.service';
+import { CartServiceService } from '../../services/cart.service';
 import { CartItem } from '../../../model/cartItem.interface';
 import { CommonModule } from '@angular/common';
 
