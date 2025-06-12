@@ -1,6 +1,6 @@
-@use "reset" as *;
-@use "mixins" as *;
-@use "variables" as *;
+@use "./app/styles/reset" as *;
+@use "./app/styles/mixins" as *;
+@use "./app/styles/variables" as *;
 
 body {
   @include flex();
