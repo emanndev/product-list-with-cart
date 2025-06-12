@@ -1,0 +1,155 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 592px;
+  width: 90%;
+  text-align: center;
+  color: #4a2c2a;
+
+  .modal-title-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    img {
+      margin-bottom: 10px;
+    }
+  }
+  h2 {
+    @include TextPreset1;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-family: "RedHatText-Regular";
+    font-size: 16px;
+    color: $rose-500;
+  }
+  .order-items {
+    margin: 15px 0;
+    background-color: $rose-50;
+  }
+
+  .order-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-bottom: 1px solid #ede4d8;
+    font-size: 14px;
+    max-height: 80px;
+
+    .item-info {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+
+      .item-image {
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      .item-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        p {
+          @include TextPreset4Bold;
+        }
+      }
+      .item-price {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+
+        p:nth-child(1) {
+          @include TextPreset4Bold;
+          color: $red;
+        }
+        p:nth-child(2) {
+          @include TextPreset4;
+          color: $rose-900;
+        }
+      }
+    }
+    .item-total {
+      @include TextPreset3;
+      color: $rose-900;
+      margin: auto 0;
+    }
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #d87c5a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+
+    &:hover {
+      background-color: darken(#d87c5a, 10%);
+    }
+  }
+
+  .total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 6rem;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: bold;
+
+    p {
+      @include TextPreset4;
+    }
+    h2 {
+      @include TextPreset2;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 15px;
+    h2 {
+      font-size: 18px;
+    }
+    .order-item {
+      font-size: 12px;
+    }
+    button {
+      font-size: 12px;
+    }
+  }
+}

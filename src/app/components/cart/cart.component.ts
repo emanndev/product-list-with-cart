@@ -5,11 +5,12 @@ import { CartServiceService } from '../../services/cart.service';
 import { CartItem } from '../../../model/cartItem.interface';
 import { CommonModule } from '@angular/common';
 import { Dessert } from '../../../model/dessert.interface';
+import { OrderConfirmationComponent } from '../order-confirmation/order-confirmation.component';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, OrderConfirmationComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })

@@ -3,11 +3,12 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { CartComponent } from './components/cart/cart.component';
 import { Dessert } from '../model/dessert.interface';
 import { MainLogicService } from './services/main-logic.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ProductCardComponent, CartComponent],
+  imports: [ProductCardComponent, CartComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

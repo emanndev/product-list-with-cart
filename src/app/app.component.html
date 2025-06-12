@@ -1,9 +1,11 @@
 <main>
   <section class="desserts">
     <h1>Desserts</h1>
-    <!-- <div class="product-grid"> -->
-    <app-product-card *ngFor="let dessert of desserts" [product]="dessert" />
-    <!-- </div> -->
+    <div class="product-grid">
+      <app-product-card *ngFor="let dessert of desserts" [product]="dessert" />
+    </div>
   </section>
-  <section class="cart"><app-cart></app-cart></section>
+  <section class="cart">
+    <app-cart></app-cart>
+  </section>
 </main>

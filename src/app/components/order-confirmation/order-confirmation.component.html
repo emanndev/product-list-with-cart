@@ -1,1 +1,40 @@
-<p>order-confirmation works!</p>
+<div class="modal">
+  <div class="modal-content">
+    <div class="modal-title-info">
+      <img src="/images/icon-order-confirmed.svg" alt="Order confirmed icon" />
+      <h2>Order Confirmed</h2>
+      <p>We hope you enjoyed your food!</p>
+    </div>
+
+    <div class="order-items">
+      <div class="order-item" *ngFor="let item of orderSummary.items">
+        <div class="item-info">
+          <div class="item-image">
+            <img [src]="item.product.image.thumbnail" alt="" />
+          </div>
+
+          <div class="item-details">
+            <p>{{ item.product.name }}</p>
+            <div class="item-price">
+              <p>{{ item.quantity }}x</p>
+              <p>&#64; ${{ item.product.price | number : "1.2-2" }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="item-total">
+          <p>${{ item.product.price * item.quantity | number : "1.2-2" }}</p>
+        </div>
+      </div>
+
+      <div class="total">
+        <p>Order Total</p>
+        <h2>${{ orderSummary.totalPrice | async | number : "1.2-2" }}</h2>
+      </div>
+    </div>
+
+    <button (click)="startNewOrder()" aria-label="Start new order">
+      Start New Order
+    </button>
+    <button (click)="close.emit()" aria-label="Close modal">Close</button>
+  </div>
+</div>

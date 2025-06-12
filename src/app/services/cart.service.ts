@@ -37,7 +37,7 @@ export class CartServiceService {
     if (idx > -1) {
       items[idx].quantity -= quantity;
       if (items[idx].quantity < 1) {
-        items[idx].quantity = 1;
+        items[idx].quantity = 0;
       }
     }
     this.cartItemsSubject.next(items);

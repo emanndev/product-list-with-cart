@@ -4,7 +4,6 @@
 :host {
   width: 100%;
 }
-
 main {
   @include flex(row, flex-start, stretch, 2rem);
   width: min(1316px, 90%);
@@ -17,9 +16,29 @@ main {
     width: 100%;
     height: 100%;
 
+    .product-grid {
+      @include product-grid;
+    }
     h1 {
       @include TextPreset1;
       color: $rose-900;
     }
   }
+
+  .cart {
+    width: 300px;
+    height: fit-content;
+    flex: 1 0 380px;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 601px) and (min-width: 1023px) {
+  // Tablet: 3 equal columns
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
 }

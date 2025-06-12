@@ -1,17 +1,17 @@
 <div class="desserts-container">
   <div class="dessert-item">
-    <section class="item-image-add-to-cart">
+    <div class="item-image-add-to-cart">
       <picture>
         <source media="(max-width: 600px)" [srcset]="product.image.mobile" />
         <source media="(max-width: 1024px)" [srcset]="product.image.tablet" />
         <img [src]="product.image.desktop" [alt]="product.name" />
       </picture>
       <app-add-to-cart [product]="product"></app-add-to-cart>
-    </section>
-    <section class="item-info">
+    </div>
+    <div class="item-info">
       <p class="category">{{ product.category }}</p>
-      <p class="name">{{ product.name }}</p>
-      <p class="price">${{ product.category | number : "1.2-2" }}</p>
-    </section>
+      <h3 class="name">{{ product.name }}</h3>
+      <p class="price">${{ product.price | number : "1.2-2" }}</p>
+    </div>
   </div>
 </div>

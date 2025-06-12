@@ -1,50 +1,50 @@
-<section class="cart">
-  <div class="cart-list-container">
-    <h2>Your Cart({{ itemCount$ | async }})</h2>
-    <ng-container *ngIf="((itemCount$ | async) ?? 0) > 0; else emptyCart">
-      <div class="cart-list">
-        <div class="cart-item" *ngFor="let item of cartItems$ | async">
-          <h3>{{ item.product.name }}</h3>
-          <div class="item-info">
-            <div class="price-info">
-              <p class="quantity">{{ item.quantity }}x</p>
-              <p class="price">
-                <span>&#64;</span> ${{ item.product.price | number : "1.2-2" }}
-              </p>
-              <p class="price-total">
-                ${{ item.product.price * item.quantity | number : "1.2-2" }}
-              </p>
-            </div>
-            <button class="remove-item" (click)="removeItem(item.product)">
-              <img src="/images/icon-remove-item.svg" alt="remove icon" />
-            </button>
+<div class="cart-list-container">
+  <h2>Your Cart({{ itemCount$ | async }})</h2>
+  <ng-container *ngIf="((itemCount$ | async) ?? 0) > 0; else emptyCart">
+    <div class="cart-list">
+      <div class="cart-item" *ngFor="let item of cartItems$ | async">
+        <h3>{{ item.product.name }}</h3>
+        <div class="item-info">
+          <div class="price-info">
+            <p class="quantity">{{ item.quantity }}x</p>
+            <p class="price">
+              <span>&#64;</span> ${{ item.product.price | number : "1.2-2" }}
+            </p>
+            <p class="price-total">
+              ${{ item.product.price * item.quantity | number : "1.2-2" }}
+            </p>
           </div>
+          <button class="remove-item" (click)="removeItem(item.product)">
+            <img src="/images/icon-remove-item.svg" alt="remove icon" />
+          </button>
         </div>
       </div>
+    </div>
 
-      <div class="cart-total">
-        <p>Order Total</p>
-        <h2>${{ total$ | async | number : "1.2-2" }}</h2>
+    <div class="cart-total">
+      <p>Order Total</p>
+      <h2>${{ total$ | async | number : "1.2-2" }}</h2>
+    </div>
+    <div class="carbon-neutral">
+      <img src="images/icon-carbon-neutral.svg" alt="carbon-neutral icon" />
+      <p>This is a <span>carbon-neutral</span> delivery</p>
+    </div>
+    <div class="confirm-order-wrapper">
+      <button class="confirm-order-btn" (click)="placeOrder()">
+        Confirm Order
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #emptyCart>
+    <div class="content">
+      <div class="empty-cart-content">
+        <img src="images/illustration-empty-cart.svg" alt="empty cart svg" />
+        <p class="empty-cart-description">Your added items will appear here</p>
       </div>
-      <div class="carbon-neutral">
-        <img src="images/icon-carbon-neutral.svg" alt="carbon-neutral icon" />
-        <p>This is a <span>carbon-neutral</span> delivery</p>
-      </div>
-      <div class="confirm-order-wrapper">
-        <button class="confirm-order-btn" (click)="placeOrder()">
-          Confirm Order
-        </button>
-      </div>
-    </ng-container>
-    <ng-template #emptyCart>
-      <div class="content">
-        <div class="empty-cart-content">
-          <img src="images/illustration-empty-cart.svg" alt="empty cart svg" />
-          <p class="empty-cart-description">
-            Your added items will appear here
-          </p>
-        </div>
-      </div>
-    </ng-template>
-  </div>
-</section>
+    </div>
+  </ng-template>
+  <app-order-confirmation
+    *ngIf="showModal"
+    (close)="closeModal()"
+  ></app-order-confirmation>
+</div>
