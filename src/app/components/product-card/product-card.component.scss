@@ -12,6 +12,7 @@
     @include flex(column, flex-start, stretch, 2rem);
     // width: 250px;
     height: fit-content;
+    animation: fadeIn 0.5s ease-in-out;
 
     .item-image-add-to-cart {
       @include flex(column);
@@ -39,5 +40,13 @@
   }
 }
 
-@media (max-width: 800px) {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

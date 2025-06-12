@@ -126,7 +126,7 @@
     font-size: 14px;
   }
 
-  button {
+  button:not(.close-btn) {
     padding: 16px 20px;
     background-color: #d87c5a;
     color: white;
@@ -136,10 +136,9 @@
     cursor: pointer;
     font-size: 14px;
     margin: 5px;
-
-    &:hover {
-      background-color: $red;
-    }
+  }
+  button:hover {
+    background-color: $red;
   }
 
   .total {
