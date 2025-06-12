@@ -1,7 +1,20 @@
 <div class="modal">
   <div class="modal-content">
     <div class="modal-title-info">
-      <img src="/images/icon-order-confirmed.svg" alt="Order confirmed icon" />
+      <div class="order-confirmed-icon">
+        <img
+          src="/images/icon-order-confirmed.svg"
+          alt="Order confirmed icon"
+        />
+        <button
+          class="close-btn"
+          (click)="close.emit()"
+          aria-label="Close modal"
+        >
+          X
+        </button>
+      </div>
+
       <h2>Order Confirmed</h2>
       <p>We hope you enjoyed your food!</p>
     </div>
@@ -35,6 +48,5 @@
     <button (click)="startNewOrder()" aria-label="Start new order">
       Start New Order
     </button>
-    <button (click)="close.emit()" aria-label="Close modal">Close</button>
   </div>
 </div>

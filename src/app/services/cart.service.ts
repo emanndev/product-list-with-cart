@@ -36,8 +36,8 @@ export class CartServiceService {
     const idx = items.findIndex((i) => i.product.id === product.id);
     if (idx > -1) {
       items[idx].quantity -= quantity;
-      if (items[idx].quantity < 1) {
-        items[idx].quantity = 0;
+      if (items[idx].quantity < 0) {
+        items.splice(idx, 1);
       }
     }
     this.cartItemsSubject.next(items);

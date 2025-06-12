@@ -16,12 +16,13 @@
 
 .modal-content {
   background: white;
-  padding: 20px;
+  padding: 40px;
   border-radius: 8px;
   max-width: 592px;
-  width: 90%;
+  width: 80%;
   text-align: center;
   color: #4a2c2a;
+  position: relative;
 
   .modal-title-info {
     display: flex;
@@ -29,8 +30,25 @@
     align-items: flex-start;
     gap: 8px;
 
-    img {
-      margin-bottom: 10px;
+    .order-confirmed-icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 6rem;
+
+      .close-btn {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: $rose-300;
+      }
+    }
+
+    p {
+      margin-top: -5px;
     }
   }
   h2 {
@@ -38,14 +56,16 @@
     font-weight: bold;
     margin-bottom: 10px;
   }
-
+  img {
+    margin-bottom: 10px;
+  }
   p {
     font-family: "RedHatText-Regular";
     font-size: 16px;
     color: $rose-500;
   }
   .order-items {
-    margin: 15px 0;
+    margin: 32px 0;
     background-color: $rose-50;
   }
 
@@ -53,7 +73,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 10px 40px;
     border-bottom: 1px solid #ede4d8;
     font-size: 14px;
     max-height: 80px;
@@ -107,17 +127,18 @@
   }
 
   button {
-    padding: 10px 20px;
+    padding: 16px 20px;
     background-color: #d87c5a;
     color: white;
     border: none;
+    width: 90%;
     border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     margin: 5px;
 
     &:hover {
-      background-color: darken(#d87c5a, 10%);
+      background-color: $red;
     }
   }
 
@@ -126,7 +147,8 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 6rem;
-    padding: 10px 30px;
+    padding: 0 30px 32px;
+    margin-top: 1.2rem;
     font-size: 14px;
     font-weight: bold;
 
@@ -141,6 +163,14 @@
 
 @media (max-width: 600px) {
   .modal-content {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 90dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     padding: 15px;
     h2 {
       font-size: 18px;

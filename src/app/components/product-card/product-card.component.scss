@@ -10,7 +10,7 @@
 
   .dessert-item {
     @include flex(column, flex-start, stretch, 2rem);
-    width: 250px;
+    // width: 250px;
     height: fit-content;
 
     .item-image-add-to-cart {
@@ -37,4 +37,7 @@
       }
     }
   }
+}
+
+@media (max-width: 800px) {
 }
