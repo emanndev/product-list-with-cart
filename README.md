@@ -1,59 +1,122 @@
-# ProductListWithCart
+# Product List with Cart
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+A modern, responsive Angular application for browsing a dessert product catalog and managing a shopping cart. Built with Angular, this project features product cards with animations, a list of desserts with theri prices, category and names, a cart, an order popup modal and automatic scrolling to the cart on mobile/tablet views. The app is deployed on Netlify for easy access.
 
-## Development server
+## Features
 
-To start a local development server, run:
+-- **Product Catalog:** Displays a grid of dessert products fetched from a local JSON file (data.json).
 
-```bash
+-- **Responsive Design:** Optimized for desktop, tablet, and mobile devices with adaptive layouts (breakpoints at 900px and 800px).
+
+-- **Shopping Cart:** Add, remove, increase, or decrease quantities of desserts in the cart with real-time updates.
+
+-- **Animations:** Smooth fade-in animations for product cards on load.
+
+-- **Auto-Scroll:** Scrolls to the cart section on mobile/tablet when items are added or updated.
+
+-- **Order Confirmation:** Modal for confirming orders, with the ability to start a new order.
+
+-- **Unit Tests:** Comprehensive Jasmine tests for components and services, ensuring reliability.
+
+## Tech Stack
+
+-- **Framework:** Angular 19
+-- **Language:** TypeScript
+-- **Styling:** SCSS with custom mixins and variables
+-- **Testing:** Jasmine, Karma
+-- **Deployment:** Netlify
+-- **Version Control:** Git (GitHub)
+
+## Installation
+
+Clone the Repository:
+git clone (<https://github.com/emanndev/product-list-with-cart>)
+cd product-list-with-cart
+
+Install Dependencies:
+npm install
+
+This installs all dependencies listed in package.json, including @angular/core.
+
+Run the Development Server:
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open <http://localhost:4200> in your browser to view the app.
+The app auto-reloads on code changes.
 
-## Code scaffolding
+## Project Structure
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+product-list-with-cart/
+├── src/
+│ ├── app/
+│ │ ├── components/
+│ │ │ ├── product-card/ # Displays individual dessert cards
+│ │ │ ├── add-to-cart/ # Handles cart actions (add, increase, decrease)
+│ │ │ ├── cart/ # Shows cart contents and order confirmation
+│ │ │ ├── order-confirmation/ # Modal for order confirmation
+│ │ ├── services/
+│ │ │ ├── cart.service.ts # Manages cart state (add, remove, clear)
+│ │ │ ├── main-logic.service.ts # Fetches dessert data from data.json
+│ │ ├── model/
+│ │ │ ├── dessert.interface.ts # Dessert and image interfaces
+│ │ │ ├── cartItem.interface.ts # Cart item interface
+│ │ ├── styles/
+│ │ │ ├── mixins.scss # SCSS mixins for layouts
+│ │ │ ├── variables.scss # SCSS variables (colors, typography)
+│ │ ├── app.component.ts # Root component with layout
+│ │ ├── app.config.ts # App configuration
+│ ├── assets/
+│ ├── images/ # dessert jpg, SVG and other assets
+│ ├── data.json # Dessert data
+├── angular.json # Angular build configuration
+├── package.json # Dependencies and scripts
+├── README.md # Readme file
 
-```bash
-ng generate component component-name
-```
+## Testing
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The project includes unit tests written with Jasmine and run via Karma.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
+Run Tests:
 ng test
-```
 
-## Running end-to-end tests
+Opens a browser with the Karma test runner.
+Tests cover component creation, cart operations, service data fetching, and order confirmation.
 
-For end-to-end (e2e) testing, run:
+Test Coverage:
 
-```bash
-ng e2e
-```
+Components: ProductCardComponent, AddToCartComponent, CartComponent, OrderConfirmationComponent
+Services: MainLogicService, CartServiceService
+Features tested: Input handling, cart actions, HTTP requests, scrolling, and modal interactions.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Headless Testing (for CI):
+ng test --watch=false --browsers=ChromeHeadless
 
-## Additional Resources
+## Usage
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+-- **Browse Desserts:**
+
+View a grid of desserts with images, names, categories, and prices.
+
+-- **Manage Cart:**
+
+Click “Add to Cart” to add a dessert.
+Use “+”/“-” buttons to adjust quantities.
+Remove items from the cart.
+
+-- **Confirm Order:**
+
+View the cart total and items.
+Click “Confirm Order” to open the order confirmation modal.
+Start a new order to clear the cart.
+
+## Contributing
+
+Fork the repository.
+Create a feature branch (git checkout -b feature/new-feature).
+Commit changes (git commit -m "Add new feature").
+Push to the branch (git push origin feature/new-feature).
+Open a pull request.
+
+## License
+
+No license
